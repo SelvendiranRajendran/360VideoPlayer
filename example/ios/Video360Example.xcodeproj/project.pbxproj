@@ -11,9 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1BC205EDB7595DF101967C67 /* libPods-Video360Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AA67C3375CBE81A61C39234 /* libPods-Video360Example.a */; };
+		468A538E28EEB6754A9ADF13 /* libPods-Video360Example-Video360ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E1C258B50CC4BFEABCC49D1 /* libPods-Video360Example-Video360ExampleTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		F23A5060C832C9D52140F018 /* libPods-Video360Example-Video360ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF20957392C76A51B1ED1F8 /* libPods-Video360Example-Video360ExampleTests.a */; };
-		F7FEFCDF23DA2D20BE7B0AB9 /* libPods-Video360Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A080F91D1B8B410BEC30E4D /* libPods-Video360Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +30,20 @@
 		00E356EE1AD99517003FC87E /* Video360ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Video360ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* Video360ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Video360ExampleTests.m; sourceTree = "<group>"; };
-		02B13C3A113B0CE97C1F42BA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example-Video360ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		0FADC6814D3C97178DA98724 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example-Video360ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Video360Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Video360Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Video360Example/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Video360Example/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Video360Example/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Video360Example/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Video360Example/main.m; sourceTree = "<group>"; };
-		1A080F91D1B8B410BEC30E4D /* libPods-Video360Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video360Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55518D77B92B960B99CC7A95 /* Pods-Video360Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example.debug.xcconfig"; path = "Target Support Files/Pods-Video360Example/Pods-Video360Example.debug.xcconfig"; sourceTree = "<group>"; };
+		181D1B25E5CAB68F02A3512A /* Pods-Video360Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example.release.xcconfig"; path = "Target Support Files/Pods-Video360Example/Pods-Video360Example.release.xcconfig"; sourceTree = "<group>"; };
+		3E1C258B50CC4BFEABCC49D1 /* libPods-Video360Example-Video360ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video360Example-Video360ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		446C5CC16C18FFD108AE7EB6 /* Pods-Video360Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example.debug.xcconfig"; path = "Target Support Files/Pods-Video360Example/Pods-Video360Example.debug.xcconfig"; sourceTree = "<group>"; };
+		4AA67C3375CBE81A61C39234 /* libPods-Video360Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video360Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Video360Example/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8DE9DFD1A275D378C276E370 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example-Video360ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8DF20957392C76A51B1ED1F8 /* libPods-Video360Example-Video360ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Video360Example-Video360ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39AE9CF08D11904FA5E5DEA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example-Video360ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F5386CB593ADFD8AA4489F12 /* Pods-Video360Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video360Example.release.xcconfig"; path = "Target Support Files/Pods-Video360Example/Pods-Video360Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23A5060C832C9D52140F018 /* libPods-Video360Example-Video360ExampleTests.a in Frameworks */,
+				468A538E28EEB6754A9ADF13 /* libPods-Video360Example-Video360ExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7FEFCDF23DA2D20BE7B0AB9 /* libPods-Video360Example.a in Frameworks */,
+				1BC205EDB7595DF101967C67 /* libPods-Video360Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				1A080F91D1B8B410BEC30E4D /* libPods-Video360Example.a */,
-				8DF20957392C76A51B1ED1F8 /* libPods-Video360Example-Video360ExampleTests.a */,
+				4AA67C3375CBE81A61C39234 /* libPods-Video360Example.a */,
+				3E1C258B50CC4BFEABCC49D1 /* libPods-Video360Example-Video360ExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				55518D77B92B960B99CC7A95 /* Pods-Video360Example.debug.xcconfig */,
-				F5386CB593ADFD8AA4489F12 /* Pods-Video360Example.release.xcconfig */,
-				8DE9DFD1A275D378C276E370 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */,
-				02B13C3A113B0CE97C1F42BA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */,
+				446C5CC16C18FFD108AE7EB6 /* Pods-Video360Example.debug.xcconfig */,
+				181D1B25E5CAB68F02A3512A /* Pods-Video360Example.release.xcconfig */,
+				0FADC6814D3C97178DA98724 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */,
+				B39AE9CF08D11904FA5E5DEA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "Video360ExampleTests" */;
 			buildPhases = (
-				6E1C2CB74A8572CE6AD4585A /* [CP] Check Pods Manifest.lock */,
+				E6C58FD2B015111E4414A293 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				0D803EAF12852C5E154FF1F3 /* [CP] Embed Pods Frameworks */,
-				B1189CD415ABFE0FA4D8D7C9 /* [CP] Copy Pods Resources */,
+				0BD52EFE611BAEDA452ECF82 /* [CP] Embed Pods Frameworks */,
+				E13408176AA80B1A4F7AC83F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,14 +176,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Video360Example" */;
 			buildPhases = (
-				025CE9E53E5B58A8B43729A9 /* [CP] Check Pods Manifest.lock */,
+				3AAB84081381BFF1397B2069 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E633305D75AD9EDD79B46203 /* [CP] Embed Pods Frameworks */,
-				F492E30DD334FE8559A41C8A /* [CP] Copy Pods Resources */,
+				9EC9A94C415A5D15B995EA57 /* [CP] Embed Pods Frameworks */,
+				57AED65C2F5CA5C8224053B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,7 +266,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		025CE9E53E5B58A8B43729A9 /* [CP] Check Pods Manifest.lock */ = {
+		0BD52EFE611BAEDA452ECF82 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AAB84081381BFF1397B2069 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,24 +305,58 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0D803EAF12852C5E154FF1F3 /* [CP] Embed Pods Frameworks */ = {
+		57AED65C2F5CA5C8224053B8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E1C2CB74A8572CE6AD4585A /* [CP] Check Pods Manifest.lock */ = {
+		9EC9A94C415A5D15B995EA57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E13408176AA80B1A4F7AC83F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6C58FD2B015111E4414A293 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -325,57 +376,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B1189CD415ABFE0FA4D8D7C9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example-Video360ExampleTests/Pods-Video360Example-Video360ExampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E633305D75AD9EDD79B46203 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F492E30DD334FE8559A41C8A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Video360Example/Pods-Video360Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -430,7 +430,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DE9DFD1A275D378C276E370 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */;
+			baseConfigurationReference = 0FADC6814D3C97178DA98724 /* Pods-Video360Example-Video360ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -457,7 +457,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02B13C3A113B0CE97C1F42BA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */;
+			baseConfigurationReference = B39AE9CF08D11904FA5E5DEA /* Pods-Video360Example-Video360ExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -481,7 +481,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55518D77B92B960B99CC7A95 /* Pods-Video360Example.debug.xcconfig */;
+			baseConfigurationReference = 446C5CC16C18FFD108AE7EB6 /* Pods-Video360Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -509,7 +509,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5386CB593ADFD8AA4489F12 /* Pods-Video360Example.release.xcconfig */;
+			baseConfigurationReference = 181D1B25E5CAB68F02A3512A /* Pods-Video360Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -40,6 +40,7 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     var activateStereoscopicVideo: Bool = false
     var hiddenButton: Bool = false
     var cardboardViewOn: Bool = false
+    var fileURL : NSURL!
     
 #if arch(arm64)
     var PROCESSOR_64BITS: Bool = true
@@ -170,18 +171,11 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
         
         }
         
-        @IBAction func backToCenter(){
-            
-            currentAngleX = 0
-            currentAngleY = 0
-            
-        }
-        
+    public func setUrl(url:NSURL){
+        fileURL = url
+    }
     //MARK: Video Player
         func play(){
-            
-            //In case you want to stream from internet, works with compatible AVPlayer media files like mp4 and HLS (.m3u8)
-            let fileURL: NSURL? = NSURL(string: "https://firebasestorage.googleapis.com/v0/b/deft-station-368306.appspot.com/o/build%2Fjfk%20(3).mp4?alt=media&token=135ed790-b440-45ca-82ac-32b45564bd12")
             
             var videoName = "vr"
             if true == activateStereoscopicVideo {

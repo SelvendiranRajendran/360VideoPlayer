@@ -18,6 +18,7 @@ class Video360View : UIView {
     
     @objc var url: String = "" {
         didSet {
+            View.setUrl(url: URL(string: url)! as NSURL)
             initiatVideo(url: url)
         }
     }

@@ -8,7 +8,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={{flex:1,overflow:'hidden'}}>
       <Video360View
-        url={'https://www.pexels.com/download/video/3209828'}
+        url={'https://firebasestorage.googleapis.com/v0/b/deft-station-368306.appspot.com/o/build%2Fjfk%20(3).mp4?alt=media&token=135ed790-b440-45ca-82ac-32b45564bd12'}
         style={styles.box}
       />
       </View>
