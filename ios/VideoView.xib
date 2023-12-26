@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerController" customModule="react_native_video360">
             <connections>
+                <outlet property="mainView" destination="XyN-yw-7RN" id="DqO-qW-gPO"/>
                 <outlet property="rightSceneView" destination="uZb-NH-c0D" id="CbT-ST-gk1"/>
+                <outlet property="slider" destination="pdj-y7-5qW" id="aru-c7-1RB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,28 +20,33 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyN-yw-7RN">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-NH-c0D">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         </sceneKitView>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pdj-y7-5qW">
+                            <rect key="frame" x="18" y="826" width="378" height="31"/>
+                        </slider>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="uZb-NH-c0D" secondAttribute="trailing" id="02I-Xy-Tgi"/>
                         <constraint firstAttribute="bottom" secondItem="uZb-NH-c0D" secondAttribute="bottom" id="CM5-JO-4h9"/>
+                        <constraint firstAttribute="bottom" secondItem="pdj-y7-5qW" secondAttribute="bottom" constant="40" id="HWq-s1-iYF"/>
                         <constraint firstItem="uZb-NH-c0D" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" id="IGc-pg-Q4v"/>
+                        <constraint firstAttribute="trailing" secondItem="pdj-y7-5qW" secondAttribute="trailing" constant="20" id="aee-Ke-BaI"/>
                         <constraint firstItem="uZb-NH-c0D" firstAttribute="top" secondItem="XyN-yw-7RN" secondAttribute="top" id="dM2-dI-m0w"/>
+                        <constraint firstItem="pdj-y7-5qW" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" constant="20" id="otR-fo-B9k"/>
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemOrangeColor"/>
             <constraints>
-                <constraint firstItem="XyN-yw-7RN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2I6-IZ-Tqs"/>
-                <constraint firstItem="XyN-yw-7RN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="8ht-qK-F8Q"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XyN-yw-7RN" secondAttribute="trailing" id="Rao-c7-QSh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XyN-yw-7RN" secondAttribute="bottom" id="nBk-DB-mwH"/>
+                <constraint firstItem="XyN-yw-7RN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2I6-IZ-Tqs"/>
+                <constraint firstItem="XyN-yw-7RN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8ht-qK-F8Q"/>
+                <constraint firstAttribute="trailing" secondItem="XyN-yw-7RN" secondAttribute="trailing" id="Rao-c7-QSh"/>
+                <constraint firstAttribute="bottom" secondItem="XyN-yw-7RN" secondAttribute="bottom" id="nBk-DB-mwH"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
         </view>
@@ -50,7 +56,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

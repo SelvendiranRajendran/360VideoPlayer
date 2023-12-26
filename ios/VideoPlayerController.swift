@@ -17,7 +17,9 @@ import CoreGraphics
 
 public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate, UIGestureRecognizerDelegate  {
     
+    @IBOutlet var slider: UISlider!
     @IBOutlet var rightSceneView: SCNView!
+    @IBOutlet var mainView: UIView!
     
     var scenes: [SCNScene]!
     
@@ -51,6 +53,7 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     override public func viewDidLoad() {
         super.viewDidLoad()
         if let view = Bundle.main.loadNibNamed("VideoView", owner: self, options: nil)?.first as? UIView {
+            view.frame = self.view.frame
             self.view.addSubview(view)
             rightSceneView?.backgroundColor = UIColor.black
             rightSceneView.delegate = self
@@ -176,12 +179,6 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     }
     //MARK: Video Player
         func play(){
-            
-            var videoName = "vr"
-            if true == activateStereoscopicVideo {
-                videoName = "vr_stereo"
-            }
-                        
             if (fileURL != nil){
                 
                 var screenScale : CGFloat                                       = 1.0
@@ -190,6 +187,11 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                 }
                 
                 player                                                          = AVPlayer(url: fileURL! as URL)
+                slider.minimumValue = 0
+                slider.maximumValue = Float(CMTimeGetSeconds(player?.currentItem?.asset.duration ?? CMTime(seconds: 1, preferredTimescale: 1)))
+                slider.value = 0
+                slider.addTarget(self, action: #selector(seekBarValueChanged), for: .valueChanged)
+                addTimeObserver()
                 let videoSpriteKitNodeLeft                                      = SKVideoNode(avPlayer: player)
                 let videoNodeLeft                                               = SCNNode()
                 let spriteKitScene1                                             = SKScene(size: CGSize(width: 1280 * screenScale, height: 1280 * screenScale))
@@ -232,7 +234,17 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                 playPausePlayer(play: false)
             }
         }
-    
+    @objc func seekBarValueChanged() {
+        let time = CMTime(seconds: Double(slider.value), preferredTimescale: 1)
+        player.seek(to: time)
+    }
+    func addTimeObserver() {
+        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { [weak self] time in
+            guard let self = self else { return }
+            let currentTime = CMTimeGetSeconds(time)
+            self.slider.value = Float(currentTime)
+        }
+    }
     public func playPausePlayer(play : Bool){
             if true == playingVideo {
                 videosSpriteKitNode.pause()
