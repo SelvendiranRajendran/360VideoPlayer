@@ -22,10 +22,19 @@ class Video360View : UIView {
             initiatVideo(url: url)
         }
     }
+    @objc var play: Bool = false {
+        didSet {
+            View.playPausePlayer(play: play)
+        }
+    }
     
     func initiatVideo(url: String){
-        View.view.frame = self.frame
         self.addSubview(View.view)
+    }
+    
+    override func layoutSubviews() {
+        print(".....frame ",self.frame)
+        View.view.frame = self.frame
     }
     
 }

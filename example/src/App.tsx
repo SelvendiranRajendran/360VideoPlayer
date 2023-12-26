@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     backgroundColor:"red"
   },
   box: {
-    flex:1
+    height: 200,
+    width: 200,
+    // overflow:"hidden "
   },
 });

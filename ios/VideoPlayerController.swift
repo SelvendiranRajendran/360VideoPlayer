@@ -22,7 +22,7 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     var scenes: [SCNScene]!
     
     var videosNode: [SCNNode]!
-    var videosSpriteKitNode: [SKVideoNode]!
+    var videosSpriteKitNode: SKVideoNode!
     var camerasNode: [SCNNode]!
     var camerasRollNode: [SCNNode]!
     var camerasPitchNode: [SCNNode]!
@@ -201,49 +201,10 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                 videoSpriteKitNodeLeft.position                                 = CGPoint(x: spriteKitScene1.size.width / 2.0, y: spriteKitScene1.size.height / 2.0)
                 videoSpriteKitNodeLeft.size                                     = spriteKitScene1.size
                 
-                if true == activateStereoscopicVideo {
-                    let videoSpriteKitNodeRight                                 = SKVideoNode(avPlayer: player)
-                    let videoNodeRight                                          = SCNNode()
-                    let spriteKitScene2                                         = SKScene(size: CGSize(width: 1280 * screenScale, height: 1280 * screenScale))
-                    spriteKitScene2.shouldRasterize                             = true
-                    
-                    videosSpriteKitNode                                         = [videoSpriteKitNodeLeft, videoSpriteKitNodeRight]
-                    videosNode                                                  = [videoNodeLeft, videoNodeRight]
-                    spriteKitScenes                                             = [spriteKitScene1, spriteKitScene2]
-                    
-                    videoNodeRight.geometry                                     = SCNSphere(radius: 30)
-                    spriteKitScene2.scaleMode                                   = .aspectFit
-                    videoSpriteKitNodeRight.position                            = CGPoint(x: spriteKitScene1.size.width / 2.0, y: spriteKitScene1.size.height / 2.0)
-                    videoSpriteKitNodeRight.size                                = spriteKitScene2.size
-                    
-                    let mask                                                    = SKShapeNode(rect: CGRect(x: 0, y: 0, width: spriteKitScene1.size.width, height: spriteKitScene1.size.width / 2.0))
-                    mask.fillColor                                              = SKColor.black
-                    
-                    let cropNode                                                = SKCropNode()
-                    cropNode.maskNode                                           = mask
-                    
-                    cropNode.addChild(videoSpriteKitNodeLeft)
-                    cropNode.yScale                                             = 2
-                    cropNode.position                                           = CGPoint(x: 0, y: 0)
-                    
-                    let mask2                                                   = SKShapeNode(rect: CGRect(x: 0, y: spriteKitScene1.size.width / 2.0, width: spriteKitScene1.size.width, height: spriteKitScene1.size.width / 2.0))
-                    mask2.fillColor                                             = SKColor.black
-                    let cropNode2                                               = SKCropNode()
-                    cropNode2.maskNode                                          = mask2
-                    
-                    cropNode2.addChild(videoSpriteKitNodeRight)
-                    cropNode2.yScale                                            = 2
-                    cropNode2.position                                          = CGPoint(x: 0, y: -spriteKitScene1.size.width)
-                    
-                    spriteKitScene1.addChild(cropNode2)
-                    spriteKitScene2.addChild(cropNode)
-                    
-                } else {
-                    videosSpriteKitNode                                         = [videoSpriteKitNodeLeft]
+                    videosSpriteKitNode                                         = videoSpriteKitNodeLeft
                     videosNode                                                  = [videoNodeLeft]
                     
                     spriteKitScene1.addChild(videoSpriteKitNodeLeft)
-                }
                 
                 if videosNode.count == spriteKitScenes.count && scenes.count == videosNode.count {
                     for i in 0 ..< videosNode.count {
@@ -268,22 +229,19 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                     }
                 }
                 
-                playPausePlayer()
+                playPausePlayer(play: false)
             }
         }
+    
+    public func playPausePlayer(play : Bool){
+            if true == playingVideo {
+                videosSpriteKitNode.pause()
+            } else {
+                videosSpriteKitNode.play()
+            }
         
-        @IBAction func playPausePlayer() {
-            
-            for videoSpriteKitNode in videosSpriteKitNode {
-                if true == playingVideo {
-                    videoSpriteKitNode.pause()
-                } else {
-                    videoSpriteKitNode.play()
-                }
-            }
-            
-            playingVideo = !playingVideo
-        }
+        playingVideo = !playingVideo
+    }
         
     //MARK: Touch Methods
         @objc func tapTheScreen(){
@@ -345,15 +303,9 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                 }
             }
         }
-        
-        
-    fileprivate func displayIfNeededCardboardView() {
-        let width = (view.bounds.width > view.bounds.height) ? view.bounds.width : view.bounds.height;
-    }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        displayIfNeededCardboardView()
     }
     
     //MARK: Clean perf
@@ -368,9 +320,7 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
         
         playingVideo = false
         
-        for videoSKNode in videosSpriteKitNode {
-            videoSKNode.removeFromParent()
-        }
+        videosSpriteKitNode.removeFromParent()
         
         for scene in scenes {
             for node in scene.rootNode.childNodes {
