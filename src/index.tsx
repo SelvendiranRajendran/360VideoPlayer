@@ -14,6 +14,7 @@ const LINKING_ERROR =
 type Video360Props = {
   url: string;
   style: ViewStyle;
+  color: string;
 };
 
 const ComponentName = 'Video360View';
