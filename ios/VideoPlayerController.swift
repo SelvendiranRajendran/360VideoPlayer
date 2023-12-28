@@ -20,15 +20,18 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     @IBOutlet var slider: UISlider!
     @IBOutlet var rightSceneView: SCNView!
     @IBOutlet var mainView: UIView!
+    @IBOutlet var durationLabel: UILabel!
+    @IBOutlet var playingDuration: UILabel!
     
+    @IBOutlet var playButton: UIButton!
     var scenes: [SCNScene]!
     
     var videosNode: [SCNNode]!
     var videosSpriteKitNode: SKVideoNode!
     var camerasNode: [SCNNode]!
-    var camerasRollNode: [SCNNode]!
-    var camerasPitchNode: [SCNNode]!
-    var camerasYawNode: [SCNNode]!
+    var camerasRollNode: SCNNode!
+    var camerasPitchNode: SCNNode!
+    var camerasYawNode: SCNNode!
     var recognizer: UITapGestureRecognizer?
     var panRecognizer: UIPanGestureRecognizer?
     var motionManager: CMMotionManager?
@@ -43,6 +46,9 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     var hiddenButton: Bool = false
     var cardboardViewOn: Bool = false
     var fileURL : NSURL!
+    var isControlVisible = true
+    var totalVideoDuration : Float!
+    var videoEnded = false
     
 #if arch(arm64)
     var PROCESSOR_64BITS: Bool = true
@@ -57,7 +63,8 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
             self.view.addSubview(view)
             rightSceneView?.backgroundColor = UIColor.black
             rightSceneView.delegate = self
-            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            mainView.addGestureRecognizer(tapGesture)
             let camX = 0.0 as Float
             let camY = 0.0 as Float
             let camZ = 0.0 as Float
@@ -89,9 +96,9 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
             
             scenes = [scene1]
             camerasNode = [cameraNodeLeft]
-            camerasRollNode = [cameraRollNodeLeft]
-            camerasPitchNode = [cameraPitchNodeLeft]
-            camerasYawNode = [cameraYawNodeLeft]
+            camerasRollNode = cameraRollNodeLeft
+            camerasPitchNode = cameraPitchNodeLeft
+            camerasYawNode = cameraYawNodeLeft
             rightSceneView?.scene = scene1
             
             leftCameraNode.position = SCNVector3(x: camX - ((true == activateStereoscopicVideo) ? 0.0 : 0.5), y: camY, z: camZ)
@@ -104,14 +111,12 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                 cameraNode.eulerAngles = SCNVector3Make(Float(camerasNodeAngles[0]), Float(camerasNodeAngles[1]), Float(camerasNodeAngles[2]))
             }
             
-            if scenes.count == camerasYawNode.count {
                 for i in 0 ..< scenes.count {
                     let scene                           = scenes[i]
-                    let cameraYawNode                   = camerasYawNode[i]
+                    let cameraYawNode                   = camerasYawNode!
                     
                     scene.rootNode.addChildNode(cameraYawNode)
                 }
-            }
             
             rightSceneView?.pointOfView = rightCameraNode
             
@@ -138,7 +143,6 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
             oldX                                        = 0
             oldY                                        = 0
             
-            //Launch the player
             play()
             
         }
@@ -230,13 +234,73 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
                         scene.rootNode.addChildNode(videoNode)
                     }
                 }
+                if let duration = player.currentItem?.asset.duration {
+                    totalVideoDuration = Float(CMTimeGetSeconds(duration))
+                    playingDuration.text =  self.getFormattedTime(totalDuration: duration)
+                } else {
+                    print("Unable to retrieve total duration.")
+                }
+                player.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { CMTime in
+                    if self.player!.currentItem?.status == .readyToPlay {
+                        if(self.totalVideoDuration == Float(CMTimeGetSeconds(self.player!.currentTime()))){
+                            self.playingVideo = false
+                            self.videoEnded = true
+                            if #available(iOS 13.0, *) {
+                                self.playButton.setImage(UIImage(systemName: "repeat"), for: .normal)
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                        }
+                        
+                        self.durationLabel.text = self.getFormattedTime(totalDuration: self.player!.currentTime())
+                        
+                    }
+                }
                 
                 playPausePlayer(play: false)
             }
         }
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        self.isControlVisible = !self.isControlVisible
+        slider.isHidden = self.isControlVisible
+        durationLabel.isHidden = self.isControlVisible
+        playingDuration.isHidden = self.isControlVisible
+        playButton.isHidden = self.isControlVisible
+    }
+    
+    func getFormattedTime(totalDuration : CMTime) -> String{
+        let totalDurationInSeconds = CMTimeGetSeconds(totalDuration)
+        let hours = Int(totalDurationInSeconds / 3600)
+        let minutes = Int((totalDurationInSeconds.truncatingRemainder(dividingBy: 3600)) / 60)
+        let seconds = Int(totalDurationInSeconds.truncatingRemainder(dividingBy: 60))
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
+    @IBAction func seekEnd(_ sender: Any) {
+        if(playingVideo){
+            player.play()
+        }
+    }
+    @IBAction func onPlayPress(_ sender: Any) {
+        playPausePlayer(play: true)
+        if(videoEnded){
+            player.seek(to: CMTime(seconds: Double(0), preferredTimescale: 1))
+            playingVideo = true
+            player.play()
+            videoEnded = false
+        }
+        if #available(iOS 13.0, *) {
+            playButton.setImage(UIImage(systemName: playingVideo ?  "pause.fill" :"play.fill"), for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
     @objc func seekBarValueChanged() {
         let time = CMTime(seconds: Double(slider.value), preferredTimescale: 1)
         player.seek(to: time)
+        if(playingVideo){
+            player.pause()
+        }
     }
     func addTimeObserver() {
         player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { [weak self] time in
@@ -263,24 +327,18 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
         
         @objc func panGesture(_ sender: UIPanGestureRecognizer){
             
-            let translation                                                     = sender.translation(in: sender.view!)
-            let protection : Float                                              = 2.0
+            let translation = sender.translation(in: sender.view!)
+            let protection : Float = 2.0
             
             if (abs(Float(translation.x) - oldX) >= protection){
-                let newAngleX                                                   = Float(translation.x) - oldX - protection
-                currentAngleX                                                   = newAngleX/100 + currentAngleX
-                oldX                                                            = Float(translation.x)
-            }
-            
-            if (abs(Float(translation.y) - oldY) >= protection){
-                let newAngleY                                                   = Float(translation.y) - oldY - protection
-                currentAngleY                                                   = newAngleY/100 + currentAngleY
-                oldY                                                            = Float(translation.y)
+                let newAngleX = Float(translation.x) - oldX - protection
+                currentAngleX = newAngleX/100 + currentAngleX
+                oldX = Float(translation.x)
             }
             
             if(sender.state == UIGestureRecognizer.State.ended) {
-                oldX                                                            = 0
-                oldY                                                            = 0
+                oldX = 0
+                oldY = 0
             }
         }
         
@@ -292,25 +350,19 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
             DispatchQueue.main.async { [weak self] () -> Void in
                 if let strongSelf = self {
                     if let mm = strongSelf.motionManager, let motion = mm.deviceMotion {
-                        let currentAttitude                                     = motion.attitude
+                        let currentAttitude = motion.attitude
                         
-                        var roll : Double                                       = currentAttitude.roll
+                        var roll : Double = currentAttitude.roll
                         
                         if(UIApplication.shared.statusBarOrientation == UIInterfaceOrientation.landscapeRight) {
-                            roll                                                = -1.0 * (-M_PI - roll)
+                            roll = -1.0 * (-M_PI - roll)
                         }
                         
-                        for cameraRollNode in strongSelf.camerasRollNode {
-                            cameraRollNode.eulerAngles.x                        = Float(roll) - strongSelf.currentAngleY
-                        }
-                        
-                        for cameraPitchNode in strongSelf.camerasPitchNode {
-                            cameraPitchNode.eulerAngles.z                       = Float(currentAttitude.pitch)
-                        }
-                        
-                        for cameraYawNode in strongSelf.camerasYawNode {
-                            cameraYawNode.eulerAngles.y                         = Float(currentAttitude.yaw) + strongSelf.currentAngleX
-                        }
+                    strongSelf.camerasRollNode.eulerAngles.x = Float(roll) - strongSelf.currentAngleY
+                
+                    strongSelf.camerasPitchNode.eulerAngles.z = Float(currentAttitude.pitch)
+                
+                    strongSelf.camerasYawNode.eulerAngles.y = Float(currentAttitude.yaw) + strongSelf.currentAngleX
                     }
                 }
             }
@@ -319,9 +371,7 @@ public class VideoPlayerController :  UIViewController, SCNSceneRendererDelegate
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
-    
-    //MARK: Clean perf
-    deinit {
+        deinit {
         
         motionManager?.stopDeviceMotionUpdates()
         motionManager = nil

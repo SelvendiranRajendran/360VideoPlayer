@@ -9,7 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerController" customModule="react_native_video360">
             <connections>
+                <outlet property="durationLabel" destination="5Zt-Q9-gHe" id="3Sp-pH-dQz"/>
                 <outlet property="mainView" destination="XyN-yw-7RN" id="DqO-qW-gPO"/>
+                <outlet property="playButton" destination="kwn-Hp-X2d" id="UGN-wh-3Et"/>
+                <outlet property="playingDuration" destination="BfP-8i-Etb" id="4qQ-z5-Ps1"/>
                 <outlet property="rightSceneView" destination="uZb-NH-c0D" id="CbT-ST-gk1"/>
                 <outlet property="slider" destination="pdj-y7-5qW" id="aru-c7-1RB"/>
             </connections>
@@ -24,20 +27,57 @@
                     <subviews>
                         <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-NH-c0D">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <gestureRecognizers/>
                         </sceneKitView>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pdj-y7-5qW">
-                            <rect key="frame" x="18" y="826" width="378" height="31"/>
+                            <rect key="frame" x="58" y="826" width="338" height="31"/>
+                            <connections>
+                                <action selector="seekEnd:" destination="-1" eventType="touchUpInside" id="KLy-X5-6C2"/>
+                            </connections>
                         </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zt-Q9-gHe">
+                            <rect key="frame" x="20" y="785" width="46" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfP-8i-Etb">
+                            <rect key="frame" x="348" y="785" width="46" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwn-Hp-X2d">
+                            <rect key="frame" x="20" y="826" width="30" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="feu-ZS-485"/>
+                                <constraint firstAttribute="height" constant="30" id="vip-bq-hV2"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="pause.fill" catalog="system"/>
+                            <connections>
+                                <action selector="onPlayPress:" destination="-1" eventType="touchUpInside" id="xCH-wE-ixl"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="uZb-NH-c0D" secondAttribute="trailing" id="02I-Xy-Tgi"/>
+                        <constraint firstAttribute="trailing" secondItem="BfP-8i-Etb" secondAttribute="trailing" constant="20" id="0E4-QA-Abp"/>
+                        <constraint firstItem="5Zt-Q9-gHe" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" constant="20" id="4BJ-vW-gM2"/>
                         <constraint firstAttribute="bottom" secondItem="uZb-NH-c0D" secondAttribute="bottom" id="CM5-JO-4h9"/>
                         <constraint firstAttribute="bottom" secondItem="pdj-y7-5qW" secondAttribute="bottom" constant="40" id="HWq-s1-iYF"/>
                         <constraint firstItem="uZb-NH-c0D" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" id="IGc-pg-Q4v"/>
+                        <constraint firstItem="pdj-y7-5qW" firstAttribute="top" secondItem="BfP-8i-Etb" secondAttribute="bottom" constant="20" id="VIh-MK-nci"/>
+                        <constraint firstItem="kwn-Hp-X2d" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" constant="20" id="YDl-e7-h7G"/>
                         <constraint firstAttribute="trailing" secondItem="pdj-y7-5qW" secondAttribute="trailing" constant="20" id="aee-Ke-BaI"/>
                         <constraint firstItem="uZb-NH-c0D" firstAttribute="top" secondItem="XyN-yw-7RN" secondAttribute="top" id="dM2-dI-m0w"/>
-                        <constraint firstItem="pdj-y7-5qW" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" constant="20" id="otR-fo-B9k"/>
+                        <constraint firstAttribute="bottom" secondItem="kwn-Hp-X2d" secondAttribute="bottom" constant="40" id="mVo-zr-OFd"/>
+                        <constraint firstItem="pdj-y7-5qW" firstAttribute="leading" secondItem="XyN-yw-7RN" secondAttribute="leading" constant="60" id="otR-fo-B9k"/>
+                        <constraint firstItem="pdj-y7-5qW" firstAttribute="top" secondItem="5Zt-Q9-gHe" secondAttribute="bottom" constant="20" id="syB-x8-idW"/>
+                        <constraint firstAttribute="trailing" secondItem="BfP-8i-Etb" secondAttribute="trailing" constant="20" id="xnF-at-mfm"/>
                     </constraints>
                 </view>
             </subviews>
@@ -48,15 +88,16 @@
                 <constraint firstAttribute="trailing" secondItem="XyN-yw-7RN" secondAttribute="trailing" id="Rao-c7-QSh"/>
                 <constraint firstAttribute="bottom" secondItem="XyN-yw-7RN" secondAttribute="bottom" id="nBk-DB-mwH"/>
             </constraints>
-            <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
+            <point key="canvasLocation" x="136.23188405797103" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -14,10 +14,11 @@ class Video360ViewManager: RCTViewManager {
 
 class Video360View : UIView {
     
-    let View = VideoPlayerController()
+    var View : VideoPlayerController!
     
     @objc var url: String = "" {
         didSet {
+            View = VideoPlayerController()
             View.setUrl(url: URL(string: url)! as NSURL)
             initiatVideo(url: url)
         }
@@ -33,8 +34,7 @@ class Video360View : UIView {
     }
     
     override func layoutSubviews() {
-        print(".....frame ",self.frame)
-        View.view.frame = self.frame
+        View?.view.frame = self.frame
     }
     
 }
